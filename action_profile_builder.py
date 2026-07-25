@@ -31,16 +31,9 @@ def fetch_github_stats(username, token):
         return {}
 
 def create_svg():
-    # User info
     username = "thanhhuy3010"
-    
-    # Lấy token từ biến môi trường (Environment Variable) do GitHub Actions truyền vào
     token = os.environ.get("GH_TOKEN")
-    if not token:
-        print("Error: GH_TOKEN environment variable not set.")
-        return
-        
-    print("Fetching GitHub stats...")
+    
     stats = fetch_github_stats(username, token)
     
     name = stats.get("name", "Hubert Tran")
@@ -49,78 +42,101 @@ def create_svg():
     public_repos = stats.get("public_repos", 0)
     avatar_url = stats.get("avatar_url", "")
     
-    # Tự động tải ảnh đại diện từ GitHub thay vì dùng ảnh local
     base64_image = ""
     if avatar_url:
-        print("Fetching and encoding avatar image...")
         base64_image = fetch_image_as_base64(avatar_url)
     
-    role = "Software Engineer"
     skills = ["Python", "JavaScript", "React", "Node.js", "Docker", "AWS"]
     skills_str = '", "'.join(skills)
 
     image_tag = ""
     if base64_image:
-        image_tag = f'<image x="30" y="70" width="180" height="240" preserveAspectRatio="xMidYMid slice" clip-path="url(#circleView)" href="{base64_image}" />'
+        image_tag = f'<image x="50" y="120" width="160" height="160" preserveAspectRatio="xMidYMid slice" clip-path="url(#circleView)" href="{base64_image}" />'
 
-    # SVG Template
     svg_template = f"""<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" font-family="ConsolasFallback,Consolas,monospace" width="800" height="400" viewBox="0 0 800 400" fontsize="15px">
-<style>
-@font-face {{
-    src: local('Consolas'), local('Consolas Bold');
-    font-family: 'ConsolasFallback';
-    font-display: swap;
-}}
-.key      {{ fill: #5EEAD4; font-weight: bold; }}   
-.string   {{ fill: #E5E7EB; }}   
-.number   {{ fill: #A78BFA; }}
-.bracket  {{ fill: #FBBF24; }}
-.keyword  {{ fill: #F472B6; }}
-.comment  {{ fill: #6B7280; font-style: italic; }}
-text, tspan {{white-space: pre;}}
-</style>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="450" viewBox="0 0 850 450">
 <defs>
+    <!-- Avatar Clip Path -->
     <clipPath id="circleView">
-        <circle cx="120" cy="190" r="90" fill="#FFFFFF" />
+        <circle cx="130" cy="200" r="80" fill="#FFFFFF" />
     </clipPath>
+    <!-- Background Gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#1E1E2E"/>
+        <stop offset="100%" stop-color="#181825"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#89B4FA"/>
+        <stop offset="100%" stop-color="#CBA6F7"/>
+    </linearGradient>
 </defs>
 
-<rect width="800px" height="400px" fill="#0D1117" rx="15"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&amp;display=swap');
+.code {{
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+}}
+.title {{ font-family: 'Fira Code', monospace; font-size: 14px; fill: #A6ADC8; }}
+.key {{ fill: #89B4FA; font-weight: 500; }}
+.string {{ fill: #A6E3A1; }}
+.number {{ fill: #FAB387; }}
+.boolean {{ fill: #F38BA8; }}
+.comment {{ fill: #6C7086; font-style: italic; }}
+.bracket {{ fill: #F9E2AF; }}
+.cursor {{
+    fill: #CBA6F7;
+    animation: blink 1s step-end infinite;
+}}
+@keyframes blink {{
+    0%, 100% {{ opacity: 1; }}
+    50% {{ opacity: 0; }}
+}}
+.typing {{
+    animation: type 2s steps(40, end);
+}}
+</style>
 
-<circle cx="25" cy="25" r="6" fill="#FF5F56"/>
-<circle cx="45" cy="25" r="6" fill="#FFBD2E"/>
-<circle cx="65" cy="25" r="6" fill="#27C93F"/>
-<text x="350" y="30" fill="#8B949E" font-size="14px">{username} ~ bash</text>
+<!-- Window Shadow & Background -->
+<rect x="10" y="10" width="830" height="430" fill="url(#bg)" rx="12" ry="12" stroke="#313244" stroke-width="2"/>
 
+<!-- Mac OS Window Buttons -->
+<circle cx="35" cy="35" r="7" fill="#F38BA8"/>
+<circle cx="55" cy="35" r="7" fill="#F9E2AF"/>
+<circle cx="75" cy="35" r="7" fill="#A6E3A1"/>
+<text x="425" y="40" class="title" text-anchor="middle">thanhhuy3010 — zsh</text>
+
+<line x1="10" y1="55" x2="840" y2="55" stroke="#313244" stroke-width="2"/>
+
+<!-- Avatar -->
 {image_tag}
+<circle cx="130" cy="200" r="82" fill="none" stroke="url(#glow)" stroke-width="3"/>
 
-<text x="250" y="80" class="comment">
-<tspan x="250" dy="1.2em"># Loading profile: {username}...</tspan>
-<tspan x="250" dy="1.2em"># Fetched from GitHub API dynamically via Actions</tspan>
-</text>
+<!-- Code Block -->
+<g class="code" transform="translate(280, 100)">
+    <text y="0" class="comment"># Fetching profile data...</text>
+    <text y="30"><tspan fill="#CBA6F7">const</tspan> <tspan class="key">developer</tspan> <tspan class="bracket">=</tspan> {{</text>
+    
+    <text y="60" x="20">name: <tspan class="string">"{name}"</tspan>,</text>
+    <text y="85" x="20">role: <tspan class="string">"Software Engineer"</tspan>,</text>
+    <text y="110" x="20">github: {{</text>
+    <text y="135" x="40">followers: <tspan class="number">{followers}</tspan>,</text>
+    <text y="160" x="40">following: <tspan class="number">{following}</tspan>,</text>
+    <text y="185" x="40">repositories: <tspan class="number">{public_repos}</tspan></text>
+    <text y="210" x="20">}},</text>
+    
+    <text y="235" x="20">skills: [</text>
+    <text y="260" x="40" class="string">"{skills_str}"</text>
+    <text y="285" x="20">]</text>
+    
+    <text y="310">}};</text>
 
-<text x="250" y="125">
-<tspan x="250" dy="1.2em" class="keyword">const </tspan><tspan class="key">profile</tspan><tspan class="bracket"> = {{</tspan>
-<tspan x="270" dy="1.5em" class="key">"name"</tspan><tspan class="string">: "{name}",</tspan>
-<tspan x="270" dy="1.5em" class="key">"role"</tspan><tspan class="string">: "{role}",</tspan>
-<tspan x="270" dy="1.5em" class="key">"followers"</tspan><tspan class="string">: </tspan><tspan class="number">{followers}</tspan><tspan class="string">,</tspan>
-<tspan x="270" dy="1.5em" class="key">"following"</tspan><tspan class="string">: </tspan><tspan class="number">{following}</tspan><tspan class="string">,</tspan>
-<tspan x="270" dy="1.5em" class="key">"repos"</tspan><tspan class="string">: </tspan><tspan class="number">{public_repos}</tspan><tspan class="string">,</tspan>
-<tspan x="270" dy="1.5em" class="key">"skills"</tspan><tspan class="string">: ["{skills_str}"],</tspan>
-<tspan x="250" dy="1.5em" class="bracket">}};</tspan>
-</text>
-
-<text x="250" y="270" class="comment">
-<tspan x="250" dy="1.2em">> console.log("Welcome to my GitHub!");</tspan>
-</text>
-<text x="250" y="290" class="string">
-<tspan x="250" dy="1.2em">Welcome to my GitHub!</tspan>
-</text>
-<text x="250" y="330" class="keyword">
-<tspan x="250" dy="1.2em">█</tspan>
-</text>
+    <!-- Terminal Prompt -->
+    <text y="355" class="key">➜</text>
+    <text y="355" x="20" fill="#89B4FA">~</text>
+    <text y="355" x="35" class="typing" fill="#CDD6F4">echo "Welcome to my GitHub Profile!"</text>
+    <rect x="345" y="340" width="10" height="18" class="cursor"/>
+</g>
 </svg>
 """
 
