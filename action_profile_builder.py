@@ -54,13 +54,11 @@ def create_svg():
         image_tag = f'<image x="50" y="120" width="160" height="160" preserveAspectRatio="xMidYMid slice" clip-path="url(#circleView)" href="{base64_image}" />'
 
     svg_template = f"""<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="850" height="450" viewBox="0 0 850 450">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="850" height="450" viewBox="0 0 850 450">
 <defs>
-    <!-- Avatar Clip Path -->
     <clipPath id="circleView">
         <circle cx="130" cy="200" r="80" fill="#FFFFFF" />
     </clipPath>
-    <!-- Background Gradient -->
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stop-color="#1E1E2E"/>
         <stop offset="100%" stop-color="#181825"/>
@@ -72,16 +70,14 @@ def create_svg():
 </defs>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&amp;display=swap');
 .code {{
-    font-family: 'Fira Code', monospace;
+    font-family: Consolas, "Courier New", monospace;
     font-size: 15px;
 }}
-.title {{ font-family: 'Fira Code', monospace; font-size: 14px; fill: #A6ADC8; }}
-.key {{ fill: #89B4FA; font-weight: 500; }}
+.title {{ font-family: Consolas, "Courier New", monospace; font-size: 14px; fill: #A6ADC8; }}
+.key {{ fill: #89B4FA; font-weight: bold; }}
 .string {{ fill: #A6E3A1; }}
 .number {{ fill: #FAB387; }}
-.boolean {{ fill: #F38BA8; }}
 .comment {{ fill: #6C7086; font-style: italic; }}
 .bracket {{ fill: #F9E2AF; }}
 .cursor {{
@@ -92,15 +88,10 @@ def create_svg():
     0%, 100% {{ opacity: 1; }}
     50% {{ opacity: 0; }}
 }}
-.typing {{
-    animation: type 2s steps(40, end);
-}}
 </style>
 
-<!-- Window Shadow & Background -->
 <rect x="10" y="10" width="830" height="430" fill="url(#bg)" rx="12" ry="12" stroke="#313244" stroke-width="2"/>
 
-<!-- Mac OS Window Buttons -->
 <circle cx="35" cy="35" r="7" fill="#F38BA8"/>
 <circle cx="55" cy="35" r="7" fill="#F9E2AF"/>
 <circle cx="75" cy="35" r="7" fill="#A6E3A1"/>
@@ -108,12 +99,10 @@ def create_svg():
 
 <line x1="10" y1="55" x2="840" y2="55" stroke="#313244" stroke-width="2"/>
 
-<!-- Avatar -->
-{image_tag}
+{image_tag.replace('href=', 'xlink:href=') if image_tag else ""}
 <circle cx="130" cy="200" r="82" fill="none" stroke="url(#glow)" stroke-width="3"/>
 
-<!-- Code Block -->
-<g class="code" transform="translate(280, 100)">
+<g class="code" transform="translate(280, 100)" font-family="Consolas, 'Courier New', monospace" font-size="15px">
     <text y="0" class="comment"># Fetching profile data...</text>
     <text y="30"><tspan fill="#CBA6F7">const</tspan> <tspan class="key">developer</tspan> <tspan class="bracket">=</tspan> {{</text>
     
@@ -131,10 +120,9 @@ def create_svg():
     
     <text y="310">}};</text>
 
-    <!-- Terminal Prompt -->
     <text y="355" class="key">➜</text>
     <text y="355" x="20" fill="#89B4FA">~</text>
-    <text y="355" x="35" class="typing" fill="#CDD6F4">echo "Welcome to my GitHub Profile!"</text>
+    <text y="355" x="35" fill="#CDD6F4">echo "Welcome to my GitHub Profile!"</text>
     <rect x="345" y="340" width="10" height="18" class="cursor"/>
 </g>
 </svg>
