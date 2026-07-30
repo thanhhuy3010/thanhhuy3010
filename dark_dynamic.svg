@@ -40,7 +40,7 @@
 }
 </style>
 
-<rect x="10" y="10" width="800" height="370" fill="url(#bg)" rx="12" ry="12" stroke="#313244" stroke-width="2"/>
+<rect x="10" y="10" width="750" height="350" fill="url(#bg)" rx="12" ry="12" stroke="#313244" stroke-width="2"/>
 
 <circle cx="35" cy="35" r="7" fill="#F38BA8"/>
 <circle cx="55" cy="35" r="7" fill="#F9E2AF"/>
