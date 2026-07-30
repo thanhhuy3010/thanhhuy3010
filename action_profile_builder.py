@@ -98,7 +98,7 @@ def create_svg():
     skills_line2 = ", ".join(skills[3:])
 
     svg_template = f"""<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="420" viewBox="0 0 840 420">
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="390" viewBox="0 0 820 390">
 <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stop-color="#1E1E2E"/>
@@ -139,12 +139,14 @@ def create_svg():
 }}
 </style>
 
-<rect x="20" y="20" width="800" height="370" fill="url(#bg)" rx="12" ry="12" stroke="#313244" stroke-width="2"/>
+<rect x="10" y="10" width="800" height="370" fill="url(#bg)" rx="12" ry="12" stroke="#313244" stroke-width="2"/>
 
 <circle cx="35" cy="35" r="7" fill="#F38BA8"/>
 <circle cx="55" cy="35" r="7" fill="#F9E2AF"/>
 <circle cx="75" cy="35" r="7" fill="#A6E3A1"/>
-<text x="425" y="40" class="title" text-anchor="middle">thanhhuy3010 — zsh</text>
+<text x="410" y="40" class="title" text-anchor="middle">thanhhuy3010 — zsh</text>
+
+<line x1="10" y1="55" x2="810" y2="55" stroke="#313244" stroke-width="2"/>
 
 {ascii_svg}
 
