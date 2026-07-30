@@ -98,7 +98,7 @@ def create_svg():
     skills_line2 = ", ".join(skills[3:])
 
     svg_template = f"""<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="850" height="450" viewBox="0 0 850 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="420" viewBox="0 0 840 420">
 <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stop-color="#1E1E2E"/>
@@ -139,7 +139,7 @@ def create_svg():
 }}
 </style>
 
-<rect x="10" y="10" width="800" height="370" fill="url(#bg)" rx="12" ry="12" stroke="#313244" stroke-width="2"/>
+<rect x="20" y="20" width="800" height="370" fill="url(#bg)" rx="12" ry="12" stroke="#313244" stroke-width="2"/>
 
 <circle cx="35" cy="35" r="7" fill="#F38BA8"/>
 <circle cx="55" cy="35" r="7" fill="#F9E2AF"/>
@@ -148,7 +148,7 @@ def create_svg():
 
 {ascii_svg}
 
-<g class="code" transform="translate(280, 110)">
+<g class="code" transform="translate(280, 95)">
     <text y="0" class="key">➜</text>
     <text y="0" x="20" fill="#89B4FA">~</text>
     <text y="0" x="40">cat profile.txt</text>
