@@ -1,9 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="850" height="450" viewBox="0 0 850 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="450" viewBox="0 0 850 450">
 <defs>
-    <clipPath id="circleView">
-        <circle cx="130" cy="200" r="80" fill="#FFFFFF" />
-    </clipPath>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stop-color="#1E1E2E"/>
         <stop offset="100%" stop-color="#181825"/>
@@ -18,6 +15,7 @@
 .code {
     font-family: Consolas, "Courier New", monospace;
     font-size: 15px;
+    fill: #CDD6F4;
 }
 .title { font-family: Consolas, "Courier New", monospace; font-size: 14px; fill: #A6ADC8; }
 .key { fill: #89B4FA; font-weight: bold; }
@@ -29,45 +27,108 @@
     fill: #CBA6F7;
     animation: blink 1s step-end infinite;
 }
+.ascii-art {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 4px;
+    fill: #CBA6F7;
+    font-weight: bold;
+    letter-spacing: 0px;
+}
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
 </style>
 
-<rect x="10" y="10" width="830" height="430" fill="url(#bg)" rx="12" ry="12" stroke="#313244" stroke-width="2"/>
+<rect x="10" y="10" width="800" height="370" fill="url(#bg)" rx="12" ry="12" stroke="#313244" stroke-width="2"/>
 
 <circle cx="35" cy="35" r="7" fill="#F38BA8"/>
 <circle cx="55" cy="35" r="7" fill="#F9E2AF"/>
 <circle cx="75" cy="35" r="7" fill="#A6E3A1"/>
 <text x="425" y="40" class="title" text-anchor="middle">thanhhuy3010 — zsh</text>
 
-<line x1="10" y1="55" x2="840" y2="55" stroke="#313244" stroke-width="2"/>
+<text x="48" y="70" class="ascii-art">
+        <tspan x="48" dy="4" xml:space="preserve">                                                                      </tspan>
+        <tspan x="48" dy="4" xml:space="preserve">                                                                      </tspan>
+        <tspan x="48" dy="4" xml:space="preserve">                          .................                           </tspan>
+        <tspan x="48" dy="4" xml:space="preserve">                    ..............................                    </tspan>
+        <tspan x="48" dy="4" xml:space="preserve">                ......................................                </tspan>
+        <tspan x="48" dy="4" xml:space="preserve">            ......................... ....................            </tspan>
+        <tspan x="48" dy="4" xml:space="preserve">         .............:----=*****###++=--....................         </tspan>
+        <tspan x="48" dy="4" xml:space="preserve">       ..............:=#@@@@@@@@@@@@@@@@@%*-...................       </tspan>
+        <tspan x="48" dy="4" xml:space="preserve">     ................-+%@@@@@@@@@@@@@@@@@@@@#-...................     </tspan>
+        <tspan x="48" dy="4" xml:space="preserve">   ................:+%@@@@@@@@@@@@@@@@@@@@@@@%=.....................  </tspan>
+        <tspan x="48" dy="4" xml:space="preserve"> .................=%@@@%@@@@@@@@@@@@@@@@@@@@@@@*+=:.................. </tspan>
+        <tspan x="48" dy="4" xml:space="preserve">.................=@@@%%@@@@@@@@@@@@@@@@@@@@@@@@@@@%+:.................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">................=@@@%%@@@@@@%%####%######%%@@@@@@@@@#-................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">...............+@@@%%@@@%#*++==---=======++*#%@@@@@@@#-...............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">..............+@@@@@@@%*++==--------=--===+++**%@@@@@@@=..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">.............:%@@@@@@%*+==---------------===+++*#@@@@@@%:.............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">.............=@@@@@@%*+==----------------======+*%@@@@@@=.............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">.............-@@@@@@#+===----------------=======+#@@@@@@+.............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">.............:@@@@@#+====-------------------====+*%@@@@@-.............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">..............*@@%%*=========-----------+******+++#@@@@%..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">..............=@@@#===+******+=--------=+++++++++++#@@@#..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">..............:%@@*=====----=====-----=====----==+=*@@@+..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">...............+@@*===-=++***+====---====+**#*+====+@@%:..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">...............:%@+=-==***@%*++===--====*+*%@*#*====%@+...............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">...............=+%+--==========-----========+==+====##=-..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">..............:==#+=----------------===----------===*+==..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">..............-=-*+=-----------------==-----------==*+==..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">..............--=++=-----------------===---------===*+==..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">..............--==+==----------=-----===---------==+*++=:.............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">..............---=+==---------==++=-=+=+=--------==+*+==:.............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">..............:=--++==---------======+==--------===++===..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">...............:=-=+==---------===-=====--------==+++==:..............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">................:::++==---------=========------===++--:...............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">...................-+===----==**********+=-----===+:..................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">....................=+===---==+++====++*+=----===+-...................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">.....................++===-----=========--======+=....................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">.....................:*++==---------------====+++.....................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">......................+++++==------------===++++-.....................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">......................=++++++==-------===+++++=+:.....................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">......................=+===++++++===++++++++====:.....................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">......................=========+++++++++++======-:....................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">...................:--====-=====================+#*==:................</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">................:-#%*++===--=====----===========+*%@@@%*=:............</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">............:=#%%@@#=++===---====================#@@@@@@@@#*=:........</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">........:=#%@@@@@@@@#===========================#@@@@@@@@@@@@@#+:.....</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">....:=*%@@@@@@@@@@@@@%*=-=====================+#@@@@@@@@@@@@@@@@@%*+-:</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">.:=#%@@@@@@@@@@@@@@@@@@%*=-==================#@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">%@@@@@@@@@@@@@@@@@@@@@@@@@#*+===-========+*#@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#***+++**#%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@####*********++#@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%.  .........   =@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%...............+@@@@@@</tspan>
+        <tspan x="48" dy="4" xml:space="preserve">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%.   .......    =@@@@@@</tspan>
+    </text>
 
-<image x="50" y="120" width="160" height="160" preserveAspectRatio="xMidYMid slice" clip-path="url(#circleView)" xlink:href="data:image/jpeg;base64,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" />
-<circle cx="130" cy="200" r="82" fill="none" stroke="url(#glow)" stroke-width="3"/>
+<g class="code" transform="translate(280, 110)">
+    <text y="0" class="key">➜</text>
+    <text y="0" x="20" fill="#89B4FA">~</text>
+    <text y="0" x="40">cat profile.txt</text>
+    
+    <text y="30" class="key">Name: <tspan class="string">Hubert Tran</tspan></text>
+    <text y="55" class="key">Role: <tspan class="string">Software Engineer</tspan></text>
+    
+    <text y="90" class="key">➜</text>
+    <text y="90" x="20" fill="#89B4FA">~</text>
+    <text y="90" x="40">skills --list</text>
 
-<g class="code" transform="translate(280, 100)" font-family="Consolas, 'Courier New', monospace" font-size="15px">
-    <text y="0" class="comment"># Fetching profile data...</text>
-    <text y="30"><tspan fill="#CBA6F7">const</tspan> <tspan class="key">developer</tspan> <tspan class="bracket">=</tspan> {</text>
-    
-    <text y="60" x="20">name: <tspan class="string">"Hubert Tran"</tspan>,</text>
-    <text y="85" x="20">role: <tspan class="string">"Software Engineer"</tspan>,</text>
-    <text y="110" x="20">github: {</text>
-    <text y="135" x="40">followers: <tspan class="number">0</tspan>,</text>
-    <text y="160" x="40">following: <tspan class="number">1</tspan>,</text>
-    <text y="185" x="40">repositories: <tspan class="number">1</tspan></text>
-    <text y="210" x="20">},</text>
-    
-    <text y="235" x="20">skills: [</text>
-    <text y="260" x="40" class="string">"Python", "JavaScript", "React", "Node.js", "Docker", "AWS"</text>
-    <text y="285" x="20">]</text>
-    
-    <text y="310">};</text>
-
-    <text y="355" class="key">➜</text>
-    <text y="355" x="20" fill="#89B4FA">~</text>
-    <text y="355" x="35" fill="#CDD6F4">echo "Welcome to my GitHub Profile!"</text>
-    <rect x="345" y="340" width="10" height="18" class="cursor"/>
+    <text y="120" class="string">Python, JavaScript, React Native,</text>
+    <text y="145" class="string">Swift, Kotlin, Node.js, Docker</text>
+    <text y="170" class="key">➜</text>
+    <text y="170" x="20" fill="#89B4FA">~</text>
+    <rect x="40" y="155" width="10" height="18" class="cursor"/>
 </g>
 </svg>

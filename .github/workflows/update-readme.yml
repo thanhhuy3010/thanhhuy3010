@@ -26,6 +26,9 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install dependencies
+        run: pip install Pillow requests
+
       - name: Run script to generate SVG
         env:
           GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
